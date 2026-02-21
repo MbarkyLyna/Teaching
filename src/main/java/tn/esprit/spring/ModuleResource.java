@@ -27,11 +27,14 @@ public class ModuleResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addModule(Module m) {
-        if (mb.addModule(m))
-            return Response.status(Response.Status.CREATED).entity(m).build();
+    public Response AddModule (Module m){
+        if (mb.addModule(m)){
+            return Response.status(Response.Status.CREATED).entity(mb.getAllModules()).build();
+        }
         return Response.status(Response.Status.NOT_FOUND).build();
+
     }
+
 
     @PUT
     @Path("/{code}")

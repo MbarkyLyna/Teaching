@@ -3,12 +3,9 @@ package tn.esprit.spring;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class BusinessUI {
 
-
     private static List<TeachingUI> units = new ArrayList<>();
-
 
     static {
         units.add(new TeachingUI(1, "Informatique", "Mme Maroua Douiri", 6, 1));
@@ -16,11 +13,9 @@ public class BusinessUI {
         units.add(new TeachingUI(3, "Physique", "Mme Sarra Abidi", 4, 2));
     }
 
-
     public List<TeachingUI> getAll() {
         return units;
     }
-
 
     public TeachingUI getByCode(int code) {
         return units.stream()
@@ -29,18 +24,18 @@ public class BusinessUI {
                 .orElse(null);
     }
 
-    public TeachingUI getBySemester(int sem) {
+    public TeachingUI getBySemester(int semester) {
         return units.stream()
-                .filter(u -> u.getSemester() == sem)
+                .filter(u -> u.getSemester() == semester)
                 .findFirst()
                 .orElse(null);
     }
 
-
-    public static boolean add(TeachingUI unit) {
-        return units.add(unit);
+    public boolean add(TeachingUI unit) {
+        if (units.add(unit))
+            return true;
+        return false;
     }
-
 
     public boolean update(int code, TeachingUI updated) {
         TeachingUI existing = getByCode(code);
@@ -53,7 +48,6 @@ public class BusinessUI {
         }
         return false;
     }
-
 
     public boolean delete(int code) {
         return units.removeIf(u -> u.getCode() == code);
