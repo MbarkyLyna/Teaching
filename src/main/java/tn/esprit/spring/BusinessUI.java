@@ -29,9 +29,16 @@ public class BusinessUI {
                 .orElse(null);
     }
 
+    public TeachingUI getBySemester(int sem) {
+        return units.stream()
+                .filter(u -> u.getSemester() == sem)
+                .findFirst()
+                .orElse(null);
+    }
 
-    public static void add(TeachingUI unit) {
-        units.add(unit);
+
+    public static boolean add(TeachingUI unit) {
+        return units.add(unit);
     }
 
 
