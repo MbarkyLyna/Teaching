@@ -8,7 +8,7 @@ public class Module {
     private int coefficient;
     private int volumeHoraire;
     private TypeModule typeM;
-private TeachingUI teachingUI;
+    private TeachingUI teachingUI;
     public Module(){}
     // Constructeur
     public Module(String matricule, String nom, int coefficient, int volumeHoraire, TypeModule type) {

@@ -17,7 +17,6 @@ public class RessourceUI {
         else
             return Response.status(Response.Status.NOT_FOUND).entity("false").build();
     }
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<TeachingUI> displayTU() {
@@ -25,7 +24,7 @@ public class RessourceUI {
             return businessUI.getAll();
         else return null;
     }
-
+    @Secured
     @GET
     @Path("/m1")
     @Produces(MediaType.APPLICATION_JSON)
